@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://b40l36102l2ch"]
+
+[ext_resource type="Script" uid="uid://cj7v744udmx3y" path="res://Scripts/code_save.gd" id="1_4163j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4163j"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="CodeEdit" type="CodeEdit" unique_id=423306372]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/caret_width = 2
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_4163j")
+emoji_menu_enabled = false
+scroll_smooth = true
+scroll_past_end_of_file = true
+minimap_draw = true
+caret_blink = true
+caret_blink_interval = 0.4
+highlight_all_occurrences = true
+gutters_draw_line_numbers = true
+script = ExtResource("1_4163j")
+metadata/_tab_index = 0
