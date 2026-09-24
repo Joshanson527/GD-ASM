@@ -63,7 +63,7 @@ jobs:
         run: |
           mkdir -p artifacts
           cd "${{ matrix.output }}"
-          zip -r "../../artifacts/${{ matrix.name }}.zip"
+          zip -r "../../artifacts/${{ matrix.name }}.zip" .
       
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
