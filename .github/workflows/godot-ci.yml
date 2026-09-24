@@ -68,19 +68,9 @@ jobs:
             --export-release "${{ matrix.preset }}" \
             "$GITHUB_WORKSPACE/${{ matrix.output_dir }}/${{ matrix.output_file }}"
       
-      - name: Package
-        run: |
-          mkdir -p artifacts
-
-          cd "${{ matrix.output_dir }}"
-
-          zip -r \
-            "$GITHUB_WORKSPACE/artifacts/gd-asm_${{ matrix.name }}.zip" \
-            .
-      
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: gd-asm_${{ matrix.name }}
-          path: artifacts/gd-asm_${{ matrix.name }}.zip
+          name: gd-asm_${{ matrix.name }}.zip
+          path: ${{ matrix.output_dir }}
           retention-days: 30
