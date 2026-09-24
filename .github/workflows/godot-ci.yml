@@ -19,21 +19,21 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - name: Linux-x86_64
+          - name: linux-x86_64
             preset: Linux-x86_64
-            output: build/linux-x86_64
+            output: build/linux-x86_64/GD-ASM
           
-          - name: Linux-arm64
+          - name: linux-arm64
             preset: Linux-arm64
-            output: build/linux-arm64
+            output: build/linux-arm64/GD-ASM
           
-          - name: Windows
+          - name: windows
             preset: Windows
-            output: build/windows
+            output: build/windows/GD-ASM.exe
           
-          - name: Macos
+          - name: macos
             preset: Macos
-            output: build/macos
+            output: build/macos/GD-ASM.zip
     
     steps:
       - name: Checkout
@@ -57,13 +57,21 @@ jobs:
       - name: Export
         run: |
           mkdir -p "${{ matrix.output }}"
-          godot --headless --verbose --export-release "${{ matrix.preset }}" "${{ matrix.output }}/output"
+            godot --headless --verbose --export-release "${{ matrix.preset }}" "${{ matrix.output }}"
       
       - name: Package
         run: |
           mkdir -p artifacts
-          cd "${{ matrix.output }}"
-          zip -r "../../artifacts/${{ matrix.name }}.zip" .
+
+          if [ "${{ matrix.name }}" = "macos" ]; then
+            cp "${{ matrix.output }}" \
+              "artifacts/gd-asm_macos.zip"
+          else
+            zip -r \
+              "artifacts/gd-asm_${{ matrix.name }}.zip" \
+              -j "${{ matrix.output }}" \
+              -r "$(dirname "${{ matrix.output }}")"
+          fi
       
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
