@@ -65,12 +65,13 @@ jobs:
 
           if [ "${{ matrix.name }}" = "macos" ]; then
             cp "${{ matrix.output }}" \
-              "artifacts/gd-asm_macos.zip"
+              "artifacts/gd-asm_${{ matrix.name }}.zip"
           else
+            cd "$(dirname "${{ matrix.output }}")"
+
             zip -r \
-              "artifacts/gd-asm_${{ matrix.name }}.zip" \
-              -j "${{ matrix.output }}" \
-              -r "$(dirname "${{ matrix.output }}")"
+              "../../artifacts/gd-asm_${{ matrix.name }}.zip" \
+              .
           fi
       
       - name: Upload Artifact
