@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://djd4h1ldvs8gv"]
+
+[ext_resource type="PackedScene" uid="uid://30bj2qhqrb2u" path="res://addons/project_statistics/nodes/charts/pie_graph.tscn" id="1"]
+[ext_resource type="Script" uid="uid://b6n06v11wmrw3" path="res://addons/project_statistics/nodes/tabs/overview_tab.gd" id="3"]
+
+[node name="OverviewTab" type="HSplitContainer" unique_id=669897423]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3")
+
+[node name="Panel" type="Panel" parent="." unique_id=1207144098]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Tree" type="Tree" parent="Panel" unique_id=1806649059]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+columns = 2
+hide_root = true
+auto_tooltip = false
+
+[node name="PieGraph" parent="." unique_id=1248275899 instance=ExtResource("1")]
+layout_mode = 2
+size_flags_horizontal = 3

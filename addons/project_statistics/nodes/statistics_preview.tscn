@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dope3ks0t5w26"]
+
+[ext_resource type="Script" uid="uid://bser3hiq062p1" path="res://addons/project_statistics/nodes/statistics_preview.gd" id="1_1iwxl"]
+[ext_resource type="PackedScene" uid="uid://djd4h1ldvs8gv" path="res://addons/project_statistics/nodes/tabs/overview_tab.tscn" id="2_cvbu0"]
+[ext_resource type="PackedScene" uid="uid://cu45cr7ji7nek" path="res://addons/project_statistics/nodes/tabs/scenes_tab.tscn" id="3_66luy"]
+[ext_resource type="PackedScene" uid="uid://cruonnffhnt2j" path="res://addons/project_statistics/nodes/tabs/resources_tab.tscn" id="4_s4c5a"]
+[ext_resource type="PackedScene" uid="uid://bnr77x87hajop" path="res://addons/project_statistics/nodes/tabs/scripts_tab.tscn" id="5_idmj1"]
+[ext_resource type="PackedScene" uid="uid://bfknrgitaegnd" path="res://addons/project_statistics/nodes/tabs/misc_tab.tscn" id="6_kexyj"]
+
+[node name="StatisticsPreview" type="VBoxContainer" unique_id=322681827 node_paths=PackedStringArray("tabs")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1iwxl")
+tabs = [NodePath("TabContainer/Overview"), NodePath("TabContainer/Scenes"), NodePath("TabContainer/Resources"), NodePath("TabContainer/Scripts"), NodePath("TabContainer/Misc")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=851956812]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=440947656]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Project statistics"
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=1723216618]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Refresh"
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=1692849987]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Overview" parent="TabContainer" unique_id=1813903185 instance=ExtResource("2_cvbu0")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Scenes" parent="TabContainer" unique_id=1914064405 instance=ExtResource("3_66luy")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Resources" parent="TabContainer" unique_id=974027165 instance=ExtResource("4_s4c5a")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Scripts" parent="TabContainer" unique_id=89313978 instance=ExtResource("5_idmj1")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Misc" parent="TabContainer" unique_id=421236847 instance=ExtResource("6_kexyj")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_refresh_pressed"]

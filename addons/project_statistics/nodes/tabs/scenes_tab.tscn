@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cu45cr7ji7nek"]
+
+[ext_resource type="Script" uid="uid://bd8fm53k1i242" path="res://addons/project_statistics/nodes/tabs/scenes_tab.gd" id="1_01ipv"]
+[ext_resource type="Script" uid="uid://vpvmtmq83wx3" path="res://addons/project_statistics/nodes/tree_view/tree_view.gd" id="2_lnd8y"]
+
+[node name="ScenesTab" type="VSplitContainer" unique_id=357771040]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+dragger_visibility = 2
+script = ExtResource("1_01ipv")
+
+[node name="Summary" type="Tree" parent="." unique_id=1903495280]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+hide_root = true
+auto_tooltip = false
+
+[node name="TreeView" type="Tree" parent="." unique_id=1993181730]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 6
+column_titles_visible = true
+hide_root = true
+auto_tooltip = false
+script = ExtResource("2_lnd8y")
+metadata/_custom_type_script = "uid://vpvmtmq83wx3"

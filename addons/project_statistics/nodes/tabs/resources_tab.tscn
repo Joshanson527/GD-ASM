@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cruonnffhnt2j"]
+
+[ext_resource type="Script" uid="uid://tiux3j2j1w23" path="res://addons/project_statistics/nodes/tabs/resources_tab.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://30bj2qhqrb2u" path="res://addons/project_statistics/nodes/charts/pie_graph.tscn" id="2_mogaw"]
+[ext_resource type="Script" uid="uid://vpvmtmq83wx3" path="res://addons/project_statistics/nodes/tree_view/tree_view.gd" id="2_vsrah"]
+
+[node name="ResourcesTab" type="VSplitContainer" unique_id=1761756239]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="." unique_id=1294243580]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Summary" type="Tree" parent="HSplitContainer" unique_id=1409918387]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+hide_root = true
+auto_tooltip = false
+
+[node name="PieGraph" parent="HSplitContainer" unique_id=1068965777 instance=ExtResource("2_mogaw")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TreeView" type="Tree" parent="." unique_id=80594063]
+layout_mode = 2
+size_flags_vertical = 3
+column_titles_visible = true
+hide_root = true
+auto_tooltip = false
+script = ExtResource("2_vsrah")
+metadata/_custom_type_script = "uid://vpvmtmq83wx3"

@@ -1,0 +1,73 @@
+name: Godot CI Build
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  GODOT_VERSION: "4.8-dev5"
+  GODOT_DOT_VERSION: "4.8.dev5"
+
+jobs:
+  build:
+    name: Build ${{ matrix.name }}
+    runs-on: ubuntu-24.04
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Linux-x86_64
+            preset: Linux-x86_64
+            output: build/linux-x86_64
+          
+          - name: Linux-arm64
+            preset: Linux-arm64
+            output: build/linux-arm64
+          
+          - name: Windows
+            preset: Windows
+            output: build/windows
+          
+          - name: Macos
+            preset: Macos
+            output: build/macos
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Install Godot
+        run: |
+          wget "https://github.com/godotengine/godot-builds/releases/download/${GODOT_VERSION}/Godot_v${GODOT_VERSION}_linux.x86_64.zip"
+          unzip "Godot_v${GODOT_VERSION}_linux.x86_64.zip"
+          sudo mv "Godot_v${GODOT_VERSION}_linux.x86_64" /usr/local/bin/godot
+          godot --version
+      
+      - name: Install Export Templates
+        run: |
+          wget "https://github.com/godotengine/godot-builds/releases/download/${GODOT_VERSION}/Godot_v${GODOT_VERSION}_export_templates.tpz"
+          mkdir -p ~/.local/share/godot/export_templates/${GODOT_DOT_VERSION}
+          unzip "Godot_v${GODOT_VERSION}_export_templates.tpz" -d ~/.local/share/godot/export_templates/${GODOT_DOT_VERSION}
+          mv ~/.local/share/godot/export_templates/${GODOT_DOT_VERSION}/templates/* ~/.local/share/godot/export_templates/${GODOT_DOT_VERSION}/
+          rm -rf ~/.local/share/godot/export_templates/${GODOT_DOT_VERSION}/templates
+
+      - name: Export
+        run: |
+          mkdir -p "${{ matrix.output }}"
+          godot --headless --verbose --export-release "${{ matrix.preset }}" "${{ matrix.output }}/output"
+      
+      - name: Package
+        run: |
+          mkdir -p artifacts
+          cd "${{ matrix.output }}"
+          zip -r "../../artifacts/${{ matrix.name }}.zip"
+      
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.name }}
+          path: artifacts/${{ matrix.name }}.zip
+          retention-days: 30

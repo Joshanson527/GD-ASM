@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://30bj2qhqrb2u"]
+
+[ext_resource type="Script" uid="uid://b1vsudqpeij1l" path="res://addons/project_statistics/nodes/charts/pie_graph.gd" id="1_iq4i1"]
+[ext_resource type="Script" uid="uid://c7wpgxe72xxby" path="res://addons/project_statistics/nodes/charts/pie_chart.gd" id="2_v6te4"]
+
+[node name="PieGraph" type="HBoxContainer" unique_id=1068965777]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iq4i1")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2032836840]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="PieChart" type="Control" parent="MarginContainer" unique_id=1290656313]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_v6te4")
+metadata/_custom_type_script = "uid://c7wpgxe72xxby"
+
+[node name="Tree" type="Tree" parent="." unique_id=406366451]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+hide_root = true
+auto_tooltip = false

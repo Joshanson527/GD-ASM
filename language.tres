@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="AssemblyLanguage" format=3 uid="uid://cto7xbf68e0ah"]
 
-[ext_resource type="Script" uid="uid://b18b6lnrra83" path="res://Scripts/assembly_alias.gd" id="1_tqdvh"]
-[ext_resource type="Script" uid="uid://cbkcy0gi8p75g" path="res://Scripts/assembly_instruction.gd" id="2_akyix"]
-[ext_resource type="Script" uid="uid://461xrwal43c" path="res://Scripts/assembly_language.gd" id="3_q7t3n"]
+[ext_resource type="Script" uid="uid://bie1ijay5myjj" path="res://Scripts/Classes/assembly_alias.gd" id="1_tqdvh"]
+[ext_resource type="Script" uid="uid://cooc57kphfkhq" path="res://Scripts/Classes/assembly_instruction.gd" id="2_akyix"]
+[ext_resource type="Script" uid="uid://461xrwal43c" path="res://Scripts/Classes/assembly_language.gd" id="3_q7t3n"]
 
 [sub_resource type="Resource" id="Resource_dfvkt"]
 script = ExtResource("1_tqdvh")
@@ -26,7 +26,6 @@ metadata/_custom_type_script = "uid://b18b6lnrra83"
 script = ExtResource("2_akyix")
 mnemonic = "nop"
 color = Color(0.5058824, 0.5058824, 0.5058824, 1)
-metadata/_custom_type_script = "uid://cbkcy0gi8p75g"
 
 [sub_resource type="Resource" id="Resource_trn2v"]
 script = ExtResource("2_akyix")
@@ -34,7 +33,6 @@ mnemonic = "ldi"
 color = Color(0.27058825, 0.4862745, 1, 1)
 encoding_type = 1
 opcode = 1
-metadata/_custom_type_script = "uid://cbkcy0gi8p75g"
 
 [sub_resource type="Resource" id="Resource_fos0i"]
 script = ExtResource("2_akyix")
@@ -42,7 +40,6 @@ mnemonic = "lod"
 color = Color(0.27058825, 0.4862745, 1, 1)
 encoding_type = 4
 opcode = 2
-metadata/_custom_type_script = "uid://cbkcy0gi8p75g"
 
 [sub_resource type="Resource" id="Resource_3dxm6"]
 script = ExtResource("2_akyix")
@@ -50,7 +47,6 @@ mnemonic = "sto"
 color = Color(0.27058825, 0.79607844, 1, 1)
 encoding_type = 4
 opcode = 3
-metadata/_custom_type_script = "uid://cbkcy0gi8p75g"
 
 [sub_resource type="Resource" id="Resource_lgr22"]
 script = ExtResource("2_akyix")
@@ -58,7 +54,6 @@ mnemonic = "and"
 color = Color(0.6627451, 0.37254903, 0.9490196, 1)
 encoding_type = 4
 opcode = 4
-metadata/_custom_type_script = "uid://cbkcy0gi8p75g"
 
 [sub_resource type="Resource" id="Resource_c2ibq"]
 script = ExtResource("2_akyix")
@@ -66,7 +61,6 @@ mnemonic = "or"
 color = Color(0.6627451, 0.37254903, 0.9490196, 1)
 encoding_type = 4
 opcode = 5
-metadata/_custom_type_script = "uid://cbkcy0gi8p75g"
 
 [sub_resource type="Resource" id="Resource_03owx"]
 script = ExtResource("2_akyix")
@@ -74,7 +68,6 @@ mnemonic = "xor"
 color = Color(0.6627451, 0.37254903, 0.9490196, 1)
 encoding_type = 4
 opcode = 6
-metadata/_custom_type_script = "uid://cbkcy0gi8p75g"
 
 [sub_resource type="Resource" id="Resource_wkp8b"]
 script = ExtResource("2_akyix")
@@ -82,7 +75,6 @@ mnemonic = "add"
 color = Color(0.9573428, 0.90259665, 0.30593485, 1)
 encoding_type = 4
 opcode = 7
-metadata/_custom_type_script = "uid://cbkcy0gi8p75g"
 
 [sub_resource type="Resource" id="Resource_20pc6"]
 script = ExtResource("2_akyix")
@@ -90,7 +82,6 @@ mnemonic = "sub"
 color = Color(0.9573428, 0.90259665, 0.30593485, 1)
 encoding_type = 4
 opcode = 8
-metadata/_custom_type_script = "uid://cbkcy0gi8p75g"
 
 [sub_resource type="Resource" id="Resource_5vvyt"]
 script = ExtResource("2_akyix")
@@ -98,7 +89,6 @@ mnemonic = "cmp"
 color = Color(0.95686275, 0.5764706, 0.30588236, 1)
 encoding_type = 4
 opcode = 9
-metadata/_custom_type_script = "uid://cbkcy0gi8p75g"
 
 [sub_resource type="Resource" id="Resource_c6i3y"]
 script = ExtResource("2_akyix")
@@ -106,7 +96,6 @@ mnemonic = "lsh"
 color = Color(0.8364331, 0.26676473, 0.7774209, 1)
 encoding_type = 2
 opcode = 10
-metadata/_custom_type_script = "uid://cbkcy0gi8p75g"
 
 [sub_resource type="Resource" id="Resource_j4qnp"]
 script = ExtResource("2_akyix")
@@ -115,7 +104,6 @@ color = Color(0.8364331, 0.26676473, 0.7774209, 1)
 encoding_type = 2
 opcode = 10
 selection_bit = 1
-metadata/_custom_type_script = "uid://cbkcy0gi8p75g"
 
 [sub_resource type="Resource" id="Resource_fpfj3"]
 script = ExtResource("2_akyix")
@@ -123,7 +111,6 @@ mnemonic = "in"
 color = Color(0.32941177, 0.8509804, 0.32941177, 1)
 encoding_type = 3
 opcode = 11
-metadata/_custom_type_script = "uid://cbkcy0gi8p75g"
 
 [sub_resource type="Resource" id="Resource_sc1dx"]
 script = ExtResource("2_akyix")
@@ -132,7 +119,6 @@ color = Color(0.32941177, 0.8509804, 0.32941177, 1)
 encoding_type = 3
 opcode = 11
 selection_bit = 1
-metadata/_custom_type_script = "uid://cbkcy0gi8p75g"
 
 [sub_resource type="Resource" id="Resource_kjvhd"]
 script = ExtResource("2_akyix")
@@ -140,7 +126,6 @@ mnemonic = "jmp"
 color = Color(0.99999624, 0.243736, 0.2847148, 1)
 encoding_type = 5
 opcode = 12
-metadata/_custom_type_script = "uid://cbkcy0gi8p75g"
 
 [sub_resource type="Resource" id="Resource_5tuhn"]
 script = ExtResource("2_akyix")
@@ -148,7 +133,6 @@ mnemonic = "jc"
 color = Color(0.9999996, 0.32466376, 0.11322657, 1)
 encoding_type = 5
 opcode = 13
-metadata/_custom_type_script = "uid://cbkcy0gi8p75g"
 
 [sub_resource type="Resource" id="Resource_2gh4u"]
 script = ExtResource("2_akyix")
@@ -156,7 +140,6 @@ mnemonic = "jz"
 color = Color(0.9999996, 0.32466376, 0.11322657, 1)
 encoding_type = 5
 opcode = 14
-metadata/_custom_type_script = "uid://cbkcy0gi8p75g"
 
 [sub_resource type="Resource" id="Resource_devvj"]
 script = ExtResource("2_akyix")
@@ -164,7 +147,6 @@ mnemonic = "jnz"
 color = Color(0.9999996, 0.32466376, 0.11322657, 1)
 encoding_type = 5
 opcode = 15
-metadata/_custom_type_script = "uid://cbkcy0gi8p75g"
 
 [resource]
 script = ExtResource("3_q7t3n")

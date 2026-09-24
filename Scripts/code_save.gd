@@ -1,8 +1,12 @@
 extends CodeEdit
 
+@onready var menu_handler: Node = $"../../../MenuHandler"
 
-func _gui_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.is_pressed() and not event.is_echo():
-		if event.keycode == KEY_S and (event.ctrl_pressed or event.meta_pressed):
-			accept_event()
-			$"../../.."._on_save_pressed()
+var labels: Array[String] = []
+var label_pos: Array[int] = []
+var errors: Dictionary[int, String] = {}
+var path: String = ""
+
+func _shortcut_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.ctrl_pressed:
+		get_viewport().set_input_as_handled()

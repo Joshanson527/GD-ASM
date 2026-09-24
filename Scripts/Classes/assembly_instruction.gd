@@ -10,7 +10,6 @@ enum EncodingType {
 	PROG_ADDRESS
 }
 
-
 @export var mnemonic: String = ""
 @export var color: Color = Color(1.0, 1.0, 1.0)
 @export var encoding_type: EncodingType = EncodingType.STANDALONE

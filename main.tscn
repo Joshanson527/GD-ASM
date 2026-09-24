@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cfefud5uifb5g"]
 
 [ext_resource type="Script" uid="uid://dkrlyphe62kkv" path="res://Scripts/main.gd" id="1_h2yge"]
-[ext_resource type="Resource" uid="uid://cto7xbf68e0ah" path="res://language.tres" id="2_1bvp3"]
+[ext_resource type="Resource" uid="uid://cto7xbf68e0ah" path="res://language.tres" id="2_82xsv"]
 [ext_resource type="Texture2D" uid="uid://dtbapy7jcbo1v" path="res://Assets/Icons/dash_in_square.svg" id="3_7mycd"]
 [ext_resource type="Script" uid="uid://b3xi42mn8446s" path="res://Scripts/menu_handler.gd" id="3_82xsv"]
-[ext_resource type="PackedScene" uid="uid://b40l36102l2ch" path="res://code_edit.tscn" id="3_cegan"]
+[ext_resource type="Script" uid="uid://dreu5gple1bo6" path="res://Scripts/Classes/compiler.gd" id="3_getpj"]
 [ext_resource type="Texture2D" uid="uid://dmtga3dys8sqe" path="res://Assets/Icons/file_plus.svg" id="3_w48qg"]
 [ext_resource type="Texture2D" uid="uid://ot31klfg0wl8" path="res://Assets/Icons/magnifying_glass.svg" id="4_272bh"]
 [ext_resource type="Texture2D" uid="uid://b853600v2h83h" path="res://Assets/Icons/arrow_left.svg" id="4_cegan"]
@@ -14,11 +14,97 @@
 [ext_resource type="Texture2D" uid="uid://b6ejhgcgdmaps" path="res://Assets/Icons/arrow_right.svg" id="5_82xsv"]
 [ext_resource type="Texture2D" uid="uid://b5rabdq4b1sdr" path="res://Assets/Icons/floppy_disks.svg" id="6_yaehf"]
 [ext_resource type="Texture2D" uid="uid://kxh7oc1jtbb0" path="res://Assets/Icons/file_cross.svg" id="7_074og"]
+[ext_resource type="Texture2D" uid="uid://dv8fas80f6l7b" path="res://Assets/Icons/checkmark_in_square.svg" id="7_getpj"]
 [ext_resource type="Texture2D" uid="uid://btygpyrajue5b" path="res://Assets/Icons/arrow_turn_up_left.svg" id="8_cegan"]
+[ext_resource type="Texture2D" uid="uid://dsdy8pollhq2m" path="res://Assets/Icons/square.svg" id="8_ryguw"]
 [ext_resource type="Texture2D" uid="uid://rq8h5x4ou7ql" path="res://Assets/Icons/arrow_turn_up_right.svg" id="9_82xsv"]
 [ext_resource type="Texture2D" uid="uid://chwsh8bejlbmm" path="res://Assets/Icons/pencil.svg" id="11_getpj"]
 [ext_resource type="Texture2D" uid="uid://37xxle5pxgtq" path="res://Assets/Icons/hammer.svg" id="15_cegan"]
 [ext_resource type="Texture2D" uid="uid://t6kcs1bdfl4v" path="res://Assets/Icons/arrow_clockwise.svg" id="16_yaehf"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_jq2sk"]
+action = &"build"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_lswn8"]
+events = [SubResource("InputEventAction_jq2sk")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_p81dx"]
+action = &"close"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_q6dle"]
+events = [SubResource("InputEventAction_p81dx")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_cegan"]
+action = &"find"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_82xsv"]
+events = [SubResource("InputEventAction_cegan")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_1u8w0"]
+action = &"goto"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_d13ii"]
+events = [SubResource("InputEventAction_1u8w0")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_82xsv"]
+action = &"new"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_cegan"]
+events = [SubResource("InputEventAction_82xsv")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_0iydf"]
+action = &"open"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_lub1q"]
+events = [SubResource("InputEventAction_0iydf")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_ryguw"]
+action = &"replace"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_getpj"]
+events = [SubResource("InputEventAction_ryguw")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_fj4ol"]
+action = &"save"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_wbcr2"]
+events = [SubResource("InputEventAction_fj4ol")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_q7i1n"]
+action = &"saveas"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_3bheo"]
+events = [SubResource("InputEventAction_q7i1n")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_lswn8"]
+action = &"zoomin"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_ryguw"]
+events = [SubResource("InputEventAction_lswn8")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_xuqvo"]
+action = &"zoomout"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_1u8w0"]
+events = [SubResource("InputEventAction_xuqvo")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_seu75"]
+action = &"zoomreset"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_0odxb"]
+events = [SubResource("InputEventAction_seu75")]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0odxb"]
 bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
@@ -138,10 +224,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h2yge")
-language = ExtResource("2_1bvp3")
+language = ExtResource("2_82xsv")
+
+[node name="Compiler" type="Node" parent="." unique_id=1537677829]
+script = ExtResource("3_getpj")
 
 [node name="MenuHandler" type="Node" parent="." unique_id=1772347366]
 script = ExtResource("3_82xsv")
+shortcuts = Dictionary[String, Shortcut]({
+"build": SubResource("Shortcut_lswn8"),
+"close": SubResource("Shortcut_q6dle"),
+"find": SubResource("Shortcut_82xsv"),
+"goto": SubResource("Shortcut_d13ii"),
+"new": SubResource("Shortcut_cegan"),
+"open": SubResource("Shortcut_lub1q"),
+"replace": SubResource("Shortcut_getpj"),
+"save": SubResource("Shortcut_wbcr2"),
+"saveas": SubResource("Shortcut_3bheo"),
+"zoomin": SubResource("Shortcut_ryguw"),
+"zoomout": SubResource("Shortcut_1u8w0"),
+"zoomreset": SubResource("Shortcut_0odxb")
+})
 
 [node name="FilePicker" type="FileDialog" parent="." unique_id=750008045]
 oversampling_override = 1.0
@@ -166,7 +269,7 @@ oversampling_override = 1.0
 title = "Warning!"
 initial_position = 2
 size = Vector2i(350, 80)
-dialog_text = "This action will delete all unsaved changes!"
+dialog_text = "All unsaved changes will be lost!"
 dialog_autowrap = true
 
 [node name="ParseTimer" type="Timer" parent="." unique_id=1532876191]
@@ -196,18 +299,15 @@ theme_override_styles/tabbar_background = SubResource("StyleBoxFlat_lswn8")
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_yaehf")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_getpj")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_ryguw")
-current_tab = 0
 drag_to_rearrange_enabled = true
-
-[node name="New 1" parent="VSplitContainer/TabContainer" unique_id=423306372 instance=ExtResource("3_cegan")]
-layout_mode = 2
 
 [node name="HSplitContainer" type="HSplitContainer" parent="VSplitContainer" unique_id=1892967214]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 6
-split_offsets = PackedInt32Array(0, 0)
+split_offsets = PackedInt32Array(-1, 0)
+split_offset = -1
 
 [node name="ErrorsContainer" type="PanelContainer" parent="VSplitContainer/HSplitContainer" unique_id=91468061]
 custom_minimum_size = Vector2(140, 0)
@@ -233,6 +333,7 @@ size_flags_horizontal = 4
 text = "Errors"
 
 [node name="PanelControls" type="HBoxContainer" parent="VSplitContainer/HSplitContainer/ErrorsContainer/VBoxContainer/Header" unique_id=2019984114]
+visible = false
 layout_mode = 2
 alignment = 1
 
@@ -287,6 +388,7 @@ size_flags_horizontal = 4
 text = "Symbols"
 
 [node name="PanelControls" type="HBoxContainer" parent="VSplitContainer/HSplitContainer/SymbolsContainer/VBoxContainer/Header" unique_id=420915080]
+visible = false
 layout_mode = 2
 alignment = 1
 
@@ -341,6 +443,7 @@ size_flags_horizontal = 4
 text = "Console"
 
 [node name="PanelControls" type="HBoxContainer" parent="VSplitContainer/HSplitContainer/ConsoleContainer/VBoxContainer/Header" unique_id=608471467]
+visible = false
 layout_mode = 2
 alignment = 1
 
@@ -364,12 +467,23 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Console" type="RichTextLabel" parent="VSplitContainer/HSplitContainer/ConsoleContainer/VBoxContainer/MarginContainer" unique_id=854456489]
+[node name="Console" type="RichTextLabel" parent="VSplitContainer/HSplitContainer/ConsoleContainer/VBoxContainer/MarginContainer" unique_id=854456489 groups=["console"]]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxEmpty_cegan")
 bbcode_enabled = true
+
+[node name="CheckBox" type="CheckBox" parent="VSplitContainer/HSplitContainer/ConsoleContainer/VBoxContainer" unique_id=1128368287]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/checkbox_unchecked_color = Color(0.3513672, 0.35136738, 0.35136724, 1)
+theme_override_icons/checked = ExtResource("7_getpj")
+theme_override_icons/unchecked = ExtResource("8_ryguw")
+text = "Auto-scroll"
 
 [node name="MenuBar" type="MenuBar" parent="." unique_id=618847665]
 layout_mode = 1
@@ -386,7 +500,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_82xsv")
 [node name="File" type="PopupMenu" parent="MenuBar" unique_id=1573500678]
 oversampling_override = 1.0
 size = Vector2i(151, 143)
-visible = true
 hide_on_checkable_item_selection = false
 item_count = 5
 item_0/text = " New"
@@ -421,16 +534,18 @@ item_2/separator = true
 item_3/text = " Find"
 item_3/icon = ExtResource("4_272bh")
 item_3/id = 3
+item_3/disabled = true
 item_4/text = " Replace"
 item_4/icon = ExtResource("11_getpj")
 item_4/id = 4
+item_4/disabled = true
 
 [node name="View" type="PopupMenu" parent="MenuBar" unique_id=702184268]
 oversampling_override = 1.0
-size = Vector2i(140, 197)
+size = Vector2i(140, 224)
 hide_on_item_selection = false
 hide_on_checkable_item_selection = false
-item_count = 7
+item_count = 8
 item_0/text = " Zoom: 12px "
 item_0/id = 0
 item_0/separator = true
@@ -446,14 +561,18 @@ item_3/id = 3
 item_4/text = " Docks "
 item_4/id = 4
 item_4/separator = true
-item_5/text = " File tree"
+item_5/text = "Errors"
 item_5/checkable = 1
 item_5/checked = true
 item_5/id = 5
-item_6/text = " Console"
+item_6/text = "Symbols"
 item_6/checkable = 1
 item_6/checked = true
 item_6/id = 6
+item_7/text = "Console"
+item_7/checkable = 1
+item_7/checked = true
+item_7/id = 7
 
 [node name="Run" type="PopupMenu" parent="MenuBar" unique_id=185689615]
 oversampling_override = 1.0
@@ -495,12 +614,17 @@ offset_bottom = -10.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 0.34509805)
-text = "GD-ASM v0.1 by Joshanson527"
 
 [connection signal="file_selected" from="FilePicker" to="MenuHandler" method="_on_file_picker_file_selected"]
-[connection signal="confirmed" from="Confirmation" to="MenuBar" method="_on_confirmation_confirmed"]
-[connection signal="timeout" from="ParseTimer" to="." method="_on_parse_timer_timeout"]
-[connection signal="meta_clicked" from="VSplitContainer/HSplitContainer/ConsoleContainer/VBoxContainer/MarginContainer/Console" to="." method="_on_console_meta_clicked"]
+[connection signal="file_selected" from="FileSaver" to="MenuHandler" method="_on_file_saver_file_selected"]
+[connection signal="confirmed" from="Confirmation" to="MenuHandler" method="_on_confirmation_confirmed"]
+[connection signal="timeout" from="ParseTimer" to="MenuHandler" method="_on_parse_timer_timeout"]
+[connection signal="active_tab_rearranged" from="VSplitContainer/TabContainer" to="MenuHandler" method="_on_tab_container_active_tab_rearranged"]
+[connection signal="tab_selected" from="VSplitContainer/TabContainer" to="MenuHandler" method="_on_tab_container_tab_selected"]
+[connection signal="meta_clicked" from="VSplitContainer/HSplitContainer/ErrorsContainer/VBoxContainer/MarginContainer/Errors" to="MenuHandler" method="_on_meta_clicked"]
+[connection signal="meta_clicked" from="VSplitContainer/HSplitContainer/SymbolsContainer/VBoxContainer/MarginContainer/Symbols" to="MenuHandler" method="_on_meta_clicked"]
+[connection signal="meta_clicked" from="VSplitContainer/HSplitContainer/ConsoleContainer/VBoxContainer/MarginContainer/Console" to="MenuHandler" method="_on_meta_clicked"]
+[connection signal="toggled" from="VSplitContainer/HSplitContainer/ConsoleContainer/VBoxContainer/CheckBox" to="MenuHandler" method="_on_auto_scroll_toggled"]
 [connection signal="id_pressed" from="MenuBar/File" to="MenuHandler" method="_on_file_id_pressed"]
 [connection signal="id_pressed" from="MenuBar/Edit" to="MenuHandler" method="_on_edit_id_pressed"]
 [connection signal="id_pressed" from="MenuBar/View" to="MenuHandler" method="_on_view_id_pressed"]
